@@ -1,5 +1,23 @@
 local plugins = {
   {
+    "akinsho/toggleterm.nvim", version = "*", config = {
+      position = "horizontal"
+    },
+  },
+  {
+    "zbirenbaum/copilot.lua",
+	  cmd = "Copilot",
+	  build = ":Copilot auth",
+	  opts = {
+		  suggestion = { enabled = true },
+		  panel = { enabled = true, auto_refresh = true },
+		  filetypes = {
+			  markdown = true,
+			  help = true,
+		  },
+	  },
+  },
+  {
     "mfussengegger/nvim-dap",
     config = function(_, opts)
       require("core.utils").load_mappings("dap")
@@ -50,6 +68,7 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        "copilot",
         "black",
         "debugpy",
         "mypy",
