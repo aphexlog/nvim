@@ -18,4 +18,11 @@ M.dap_python = {
   }
 }
 
+M.lazygit = {
+  n = {
+    ["<leader>lg"] = {":lua require('lazygit').lazygit()<CR>"}
+  }
+}
+
+
 return M
