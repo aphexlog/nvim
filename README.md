@@ -29,21 +29,25 @@ Upon the first launch of NeoVim with this distribution, run the following comman
 
 ### Debugging with DAP
 
-- Set a breakpoint with `[space] + d + b`.
-- Run tests with `[space] + d + p + r`.
+- Set a breakpoint with `<Space>db`.
+- Run tests with `<Space>dpr`.
 
 ### Theme Switching
 
-- Switch themes with `[space] + t + h`.
+- Switch themes with `<Space>th`.
 
 ### File Tree View
 
-- Toggle the file tree view with `Ctrl + n`.
+- Toggle the file tree view with `Ctrl+n`.
 
 ### Code Formatting
 
 - The distribution uses the `black` formatter for Python, set to format on save.
-- You can also format manually with `[space] + f + m`.
+- You can also format manually with `<Space>fm`.
+
+### LazyGit Integration
+
+- Bring up the LazyGit UI within NeoVim with `<Space>lg`. This allows you to perform Git operations directly within your NeoVim environment.
 
 ## Customization
 
@@ -55,4 +59,3 @@ This distribution is set up to support Python development by default. However, i
 - If you encounter any issues, ensure that you have removed any old configurations and cleared the NeoVim cache as described in the Installation section.
 
 Happy Coding!
-
