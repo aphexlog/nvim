@@ -1,5 +1,12 @@
 local plugins = {
   {
+    "kdheepak/lazygit.nvim",
+    -- optional for floating window border decoration
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
+  {
     "akinsho/toggleterm.nvim", version = "*", config = { position = "horizontal" }, cmd = "ToggleTerm"
   },
   {
@@ -71,6 +78,7 @@ local plugins = {
         "mypy",
         "ruff",
         "pyright",
+        "lua-language-server",
       }
     }
   },
