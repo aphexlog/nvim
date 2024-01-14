@@ -1,8 +1,6 @@
 local plugins = {
   {
-    "akinsho/toggleterm.nvim", version = "*", config = {
-      position = "horizontal"
-    },
+    "akinsho/toggleterm.nvim", version = "*", config = { position = "horizontal" }, cmd = "ToggleTerm"
   },
   {
     "zbirenbaum/copilot.lua",
@@ -68,7 +66,6 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "copilot",
         "black",
         "debugpy",
         "mypy",
