@@ -24,5 +24,10 @@ M.lazygit = {
   }
 }
 
+M.copilot = {
+  n = {
+    ["<leader>cp"] = {":Copilot<CR>"},
+  }
+}
 
 return M

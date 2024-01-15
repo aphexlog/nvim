@@ -42,12 +42,17 @@ Upon the first launch of NeoVim with this distribution, run the following comman
 
 ### Code Formatting
 
-- The distribution uses the `black` formatter for Python, set to format on save.
+This distribution uses the `black` formatter for Python, set to format on save.
 - You can also format manually with `<Space>fm`.
 
 ### LazyGit Integration
 
 - Bring up the LazyGit UI within NeoVim with `<Space>lg`. This allows you to perform Git operations directly within your NeoVim environment.
+
+### Copilot Integration
+
+This distribution comes with Copilot integration, allowing you to easily use the Copilot AI to generate code. To use it, you must first install the Copilot CLI and authenticate it with your GitHub account.
+- Once Copilot is installed and authenticated, you can use it to generate code by running `<Space>cp` and entering the desired prompt.
 
 ## Customization
 
