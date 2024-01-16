@@ -30,4 +30,10 @@ M.copilot = {
   }
 }
 
+M.toggleterm = {
+  n = {
+    ["<leader>tt"] = {":ToggleTerm<CR>"},
+  }
+}
+
 return M

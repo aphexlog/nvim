@@ -27,6 +27,10 @@ Upon the first launch of NeoVim with this distribution, run the following comman
 
 - Run `:LspInfo` to view the LSP configuration currently loaded into the buffer.
 
+### Integrated Terminal
+
+- Toggle the integrated terminal with `<Space>tt`.
+
 ### Debugging with DAP
 
 - Set a breakpoint with `<Space>db`.
