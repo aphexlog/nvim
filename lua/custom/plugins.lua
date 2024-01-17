@@ -75,7 +75,7 @@ local plugins = {
       ensure_installed = {
         "black",
         "debugpy",
-        "mypy",
+        -- "mypy",
         "ruff",
         "pyright",
         "lua-language-server",
