@@ -14,11 +14,34 @@ local plugins = {
 	  cmd = "Copilot",
 	  build = ":Copilot auth",
 	  opts = {
-		  panel = { enabled = true, auto_refresh = true },
-      suggestion = { enabled = true, auto_trigger = true },
-		  filetypes = {
+		  panel = {
+        enabled = true,
+        auto_refresh = false,
+      },
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        keymap = {
+          accept = "<C-a>",
+          accept_word = false,
+          accept_line = false,
+          next = "<C-]>",
+          prev = "<C-[>",
+          dismiss = "<C-x>",
+        },
+      },
+      filetypes = {
 			  markdown = true,
 			  help = true,
+        yaml = true,
+        toml = true,
+        json = true,
+        lua = true,
+        python = true,
+        rust = true,
+        go = true,
+        javascript = true,
+        typescript = true,
 		  },
 	  },
   },
@@ -63,10 +86,10 @@ local plugins = {
     end,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     ft = {"python"},
     opts = function()
-      return require "custom.configs.null-ls"
+      return require "custom.configs.none-ls"
     end,
   },
   {
@@ -79,6 +102,7 @@ local plugins = {
         "ruff",
         "pyright",
         "lua-language-server",
+        "stylua",
       }
     }
   },

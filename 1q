@@ -28,6 +28,9 @@ M.copilot = {
   n = {
     ["<leader>cp"] = {":Copilot<CR>"},
   },
+  i = {
+    ["<C-S-Tab>"] = {"<cmd>lua require('nvim-autopairs'}.autopairs_cr())<CR>"},
+  }
 }
 
 M.toggleterm = {
