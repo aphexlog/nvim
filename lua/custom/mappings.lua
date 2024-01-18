@@ -20,7 +20,7 @@ M.dap_python = {
 
 M.lazygit = {
   n = {
-    ["'n', <leader>lg"] = {":lua require('lazygit').lazygit()<CR>"}
+    ["<leader>lg"] = {":lua require('lazygit').lazygit()<CR>"}
   }
 }
 

@@ -16,7 +16,7 @@ local plugins = {
 	  opts = {
 		  panel = {
         enabled = true,
-        auto_refresh = false,
+        auto_refresh = true,
       },
       suggestion = {
         enabled = true,
