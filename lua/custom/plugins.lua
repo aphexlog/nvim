@@ -53,7 +53,10 @@ local plugins = {
     },
     {
         "rcarriga/nvim-dap-ui",
-        dependencies = "mfussengegger/nvim-dap",
+        dependencies = {
+            "mfussengegger/nvim-dap",
+            "nvim-neotest/nvim-nio", -- Add this dependency
+        },
         config = function()
             local dap = require("dap")
             local dapui = require("dapui")
@@ -83,10 +86,33 @@ local plugins = {
         end,
     },
     {
-        "nvimtools/none-ls.nvim",
-        ft = { "python" },
+        "jose-elias-alvarez/null-ls.nvim",
         opts = function()
-            return require "custom.configs.none-ls"
+            local null_ls = require("null-ls")
+            local lspconfig = require("lspconfig")
+
+            -- Ensure null-ls is set up
+            local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+            return {
+                sources = {
+                    null_ls.builtins.diagnostics.ruff, -- Ruff diagnostics
+                    null_ls.builtins.diagnostics.mypy, -- MyPy diagnostics
+                    null_ls.builtins.formatting.black, -- Black for formatting
+                },
+                on_attach = function(client, bufnr)
+                    if client.supports_method("textDocument/formatting") then
+                        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+                        vim.api.nvim_create_autocmd("BufWritePre", {
+                            group = augroup,
+                            buffer = bufnr,
+                            callback = function()
+                                vim.lsp.buf.format({ bufnr = bufnr })
+                            end,
+                        })
+                    end
+                end,
+            }
         end,
     },
     {
@@ -95,7 +121,7 @@ local plugins = {
             ensure_installed = {
                 "black",
                 "debugpy",
-                -- "mypy",
+                "mypy",
                 "ruff",
                 "pyright",
                 "lua-language-server",
@@ -110,6 +136,9 @@ local plugins = {
         config = function()
             require "plugins.configs.lspconfig"
             local lspconfig = require "lspconfig"
+
+            -- Set up pyright for Python LSP
+            lspconfig.pyright.setup {}
 
             -- Ensure Terraform Language Server (terraformls) is configured
             lspconfig.terraformls.setup {}
@@ -126,7 +155,7 @@ local plugins = {
                 ensure_installed = { "hcl", "lua", "python" }, -- Add other languages as necessary
                 highlight = {
                     enable = true,
-                    additional_vim_regex_highlighting = true, -- This can be set to true if needed
+                    additional_vim_regex_highlighting = false, -- Set to false for performance
                 },
             }
         end,
@@ -143,4 +172,5 @@ local plugins = {
         end,
     }
 }
+
 return plugins
